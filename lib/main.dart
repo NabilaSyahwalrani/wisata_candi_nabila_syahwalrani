@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:wisata_candi_nabila_syahwalrani/data/candi_data.dart';
 import 'package:wisata_candi_nabila_syahwalrani/screens/detail_screen.dart';
 import 'package:wisata_candi_nabila_syahwalrani/screens/profile_screen.dart';
+import 'package:wisata_candi_nabila_syahwalrani/screens/search_screen.dart';
 import 'package:wisata_candi_nabila_syahwalrani/screens/sign_in_screen.dart';
+import 'package:wisata_candi_nabila_syahwalrani/screens/sign_up_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -33,9 +35,11 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      //home: ProfileScreen(),
+      // home: ProfileScreen(),
       //home: DetailScreen(candi : candiList[0]),
-      home: SignInScreen(),
+      // home: SignInScreen(),
+      //home: SignUpScreen(),
+      home: SearchScreen(),
     );
   }
 }

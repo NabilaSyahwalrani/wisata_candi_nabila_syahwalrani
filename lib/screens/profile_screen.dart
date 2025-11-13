@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wisata_candi_nabila_syahwalrani/widgets/profile_info_item.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -69,64 +70,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   SizedBox(height: 20),
                   Divider(color: Colors.deepPurple[100]),
                   SizedBox(height: 4),
-                  Row(
-                    children: [
-                      SizedBox(width: MediaQuery.of(context).size.width / 3,
-                        child: Row(
-                          children: [
-                            Icon(Icons.lock, color: Colors.amber),
-                            SizedBox(width: 8),
-                            Text('Pengguna', style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold,
-                          ),),
-                        ],
-                      ),),
-                    Expanded(
-                      child: Text(': $userName', style: TextStyle(
-                        fontSize: 18),),),
-                ],
-              ),
-                  SizedBox(height: 4),
-                  Divider(color: Colors.deepPurple[100]),
-                  SizedBox(height: 4),
-                  Row(
-                    children: [
-                      SizedBox(width: MediaQuery.of(context).size.width / 3,
-                        child: Row(
-                          children: [
-                            Icon(Icons.person, color: Colors.blue),
-                            SizedBox(width: 8),
-                            Text('Nama', style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold,
-                            ),),
-                          ],
-                        ),),
-                      Expanded(
-                        child: Text(': $fullName', style: TextStyle(
-                            fontSize: 18),),),
-                      if(isSignedIn) Icon(Icons.edit),
-                    ],
+                  ProfileInfoItem(
+                      icon: Icons.lock,
+                      label: 'Pengguna',
+                      value: userName,
+                      iconColor: Colors.amber,
                   ),
                   SizedBox(height: 4),
                   Divider(color: Colors.deepPurple[100]),
                   SizedBox(height: 4),
-                  Row(
-                    children: [
-                      SizedBox(width: MediaQuery.of(context).size.width / 3,
-                        child: Row(
-                          children: [
-                            Icon(Icons.favorite, color: Colors.red),
-                            SizedBox(width: 8),
-                            Text('Favorit', style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold,
-                            ),),
-                          ],
-                        ),),
-                      Expanded(
-                        child: Text(': $favoriteCandiCount', style: TextStyle(
-                            fontSize: 18),),),
-                      if(isSignedIn) Icon(Icons.edit),
-                    ],
+                  ProfileInfoItem(
+                      icon: Icons.person,
+                      label: 'Nama',
+                      value: fullName,
+                      showEditIcon: isSignedIn,
+                      onEditPressed: (){
+                        //Tindakan saat ikon edit ditekan, misalnya pengeditan nama
+                        debugPrint('Icon edit ditekan ...');
+                      },
+                    iconColor: Colors.blue,
+                  ),
+                  SizedBox(height: 4),
+                  Divider(color: Colors.deepPurple[100]),
+                  SizedBox(height: 4),
+                  ProfileInfoItem(
+                      icon: Icons.favorite,
+                      label: 'Favorit',
+                      value: favoriteCandiCount > 0 ? '$favoriteCandiCount' : '',
+                      iconColor: Colors.red,
                   ),
 
               //TODO: 4. Buat ProfileActions yang berisi TextButton siap in/out
