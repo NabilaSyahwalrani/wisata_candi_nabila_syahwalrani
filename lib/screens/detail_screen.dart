@@ -48,7 +48,7 @@ class _DetailScreenState extends State<DetailScreen> {
     if (!isSignedIn) {
       // Jika belum sign in, arahkan ke SignInScreen
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        Navigator.pushReplacementNamed(context, '/signin');
+        Navigator.pushReplacementNamed(context, '/signinscreen');
       });
       return;
     }
